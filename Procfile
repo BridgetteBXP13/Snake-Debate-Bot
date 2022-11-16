@@ -1,1 +1,1 @@
-﻿web: gunicorn snakedebatechatbot:app
+﻿web: gunicorn app:app
