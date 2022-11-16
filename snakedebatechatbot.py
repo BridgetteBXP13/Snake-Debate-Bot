@@ -188,7 +188,7 @@ def add_input(input):
     # Open and append to our input file
     with open("new_inputs.txt", "a") as inputs_file:
         inputs_file.write(input +'\n')
-    inputs_file.close()
+        inputs_file.close()
 
 # Predicts the category based on the user input
 def predict_category(input):
