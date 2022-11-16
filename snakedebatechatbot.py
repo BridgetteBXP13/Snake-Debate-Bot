@@ -72,6 +72,8 @@ def chatbot_response():
 
 # Processes the input for each sentence given
 def process_input(input):
+    # Global variable to keep track of categories
+    global covered_cats
     response = ""
     # Make sure they didn't use any of the keywords or include their name
     if input.lower().__contains__('my name is'):
@@ -80,6 +82,9 @@ def process_input(input):
         for i in split_input:
             if is_name:
                 response = "Hello " + i
+                # Reset our categories!
+                covered_cats = []
+                break
             elif i.lower() == 'is':
                 is_name = True
     elif input.lower() == 'behavior':
@@ -97,7 +102,7 @@ def process_input(input):
     elif input.lower() == 'deaf':
         response = get_response('Deaf')
     elif input.lower() == 'definition':
-        response = get_response('Defintion')
+        response = get_response('Definition')
     elif input.lower() == 'diamond':
         response = get_response('Diamond')
     elif input.lower() == 'dislocate jaws':
@@ -302,6 +307,7 @@ def predict_category(input):
 
 # Returns the response given the category
 def get_response(category):
+    # Global variable to keep track of categories
     global covered_cats
     response = ""
     # creates a string and returns it for each category
